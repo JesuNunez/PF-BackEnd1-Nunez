@@ -39,7 +39,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Configuración de sesiones
 app.use(session({
     secret: 'yourSecretKey', 
     resave: false,
@@ -66,8 +65,6 @@ app.use(async (req, res, next) => {
 // Rutas
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
-
-// Ruta raíz
 app.get('/', (req, res) => {
     res.redirect('/products');
 });
